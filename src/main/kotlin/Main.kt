@@ -1,16 +1,17 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    val branchA = "main"  // Replace with your actual branch names
+    val branchB = "develop"
+    val localRepoPath = "C:/Users/Aleksa/Documents/jetbrains_tasks/teamcity_task/TeamCityTask1/"
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+    val mergeBase = findMergeBaseCommit(branchA, branchB, localRepoPath)
+//    println(mergeBase)
+
+    val owner = "aleksaqm"
+    val repo = "TeamCityTask1"
+    val accessToken = "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"
+
+
+    val filesListRemote = mergeBase?.let { getChangedFilesRemoteBranch(owner, repo, branchA, it, accessToken) }
 }
