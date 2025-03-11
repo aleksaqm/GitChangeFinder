@@ -1,19 +1,21 @@
 package org.example
 
-import java.io.BufferedReader
 import java.io.File
-import java.io.InputStreamReader
+class GitCommandException(message: String) : Exception(message)
 
-fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String? {
-    val processBuilder = ProcessBuilder("git", "merge-base", "origin/$branchA", branchB)
-    processBuilder.directory(File(localRepoPath))
+fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String {
+    val process = ProcessBuilder("git", "merge-base", "origin/$branchA", branchB)
+        .directory(File(localRepoPath))
+        .redirectErrorStream(true)
+        .start()
 
-    val process = processBuilder.start()
-    val reader = BufferedReader(InputStreamReader(process.inputStream))
+    val output = process.inputStream.bufferedReader().use { it.readLine()?.trim() }
+    val exitCode = process.waitFor()
 
-    val mergeBaseCommit = reader.readLine()
-    process.waitFor()
+    if (exitCode != 0 || output.isNullOrBlank()) {
+        throw GitCommandException("Failed to find merge base between '$branchA' and '$branchB'. Ensure the branches exist and are properly set up.")
+    }
 
-    return mergeBaseCommit
+    return output
 }
 

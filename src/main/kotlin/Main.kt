@@ -12,13 +12,7 @@ fun main() {
     val repo = "TeamCityTask1"
     val accessToken = "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"
 
+    val sameChanges = findChangedFiles(owner, repo, accessToken, localRepoPath, branchA, branchB)
+    println(sameChanges)
 
-    val filesListRemote = mergeBase?.let { getChangedFilesRemoteBranch(owner, repo, branchA, it, accessToken) }
-    val filesListLocal = mergeBase?.let { getChangedFilesLocalBranch(it, branchA, localRepoPath) }
-    println(filesListLocal)
-    println(filesListRemote)
-    if (filesListRemote != null && filesListLocal != null) {
-        val finalList = compareChanges(filesListLocal, filesListRemote)
-        println(finalList)
-    }
 }

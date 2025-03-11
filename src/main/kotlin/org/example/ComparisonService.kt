@@ -1,7 +1,9 @@
 package org.example
 
 fun compareChanges(localChanges: List<String>, remoteChanges: List<String>): List<String> {
-    val remoteSet = remoteChanges.toSet()
+    if (localChanges.isEmpty() || remoteChanges.isEmpty()) return emptyList()
+
+    val remoteSet = remoteChanges.toHashSet()
     return localChanges.filter { it in remoteSet }
 }
 

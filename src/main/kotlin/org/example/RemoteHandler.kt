@@ -15,28 +15,33 @@ data class ChangedFile(
     val filename: String,
 )
 
+class GitHubApiException(message: String) : Exception(message)
+
 fun getChangedFilesRemoteBranch(owner: String, repo: String, branch: String, mergeBaseCommit: String, accessToken: String): List<String> {
     val url = URL("https://api.github.com/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")
-    val connection = url.openConnection() as HttpURLConnection
-    connection.requestMethod = "GET"
-    connection.setRequestProperty("Authorization", "Bearer $accessToken")
-    connection.setRequestProperty("Accept", "application/vnd.github.v3+json")
 
-    val responseCode = connection.responseCode
-    if (responseCode != 200){
-        println("Failed to get changes in remote branch $branch")
-        return emptyList()
+    val connection = (url.openConnection() as HttpURLConnection).apply {
+        requestMethod = "GET"
+        setRequestProperty("Authorization", "Bearer $accessToken")
+        setRequestProperty("Accept", "application/vnd.github.v3+json")
+        setRequestProperty("User-Agent", "Kotlin-Git-Client")
+        connectTimeout = 10_000
+        readTimeout = 10_000
     }
 
-    val reader = BufferedReader(InputStreamReader(connection.inputStream))
-    val response = reader.readText()
-    reader.close()
+    return try {
+        if (connection.responseCode != 200) {
+            val errorMsg = connection.errorStream?.bufferedReader()?.use { it.readText() } ?: "Unknown error"
+            throw GitHubApiException("Failed to get changes in remote branch '$branch'. Response code: ${connection.responseCode}, Error: $errorMsg")
+        }
 
-    val json = Json { ignoreUnknownKeys = true }
+        val json = Json { ignoreUnknownKeys = true }
+        val response = connection.inputStream.bufferedReader().use { it.readText() }
+        val jsonObject = json.parseToJsonElement(response).jsonObject
 
-    val jsonObject = json.parseToJsonElement(response).jsonObject
-
-    val filesJsonArray = jsonObject["files"]?.jsonArray ?: return emptyList()
-
-    return filesJsonArray.map { json.decodeFromJsonElement<ChangedFile>(it).filename }
+        val filesJsonArray = jsonObject["files"]?.jsonArray ?: return emptyList()
+        filesJsonArray.map { json.decodeFromJsonElement<ChangedFile>(it).filename }
+    } finally {
+        connection.disconnect()
+    }
 }
