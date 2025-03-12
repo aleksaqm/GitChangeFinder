@@ -1,6 +1,6 @@
-package org.example
+package org.example.org.example.utils
 
-fun compareChanges(localChanges: List<String>, remoteChanges: List<String>): List<String> {
+fun getCommonItems(localChanges: List<String>, remoteChanges: List<String>): List<String> {
     if (localChanges.isEmpty() || remoteChanges.isEmpty()) return emptyList()
 
     val remoteSet = remoteChanges.toHashSet()

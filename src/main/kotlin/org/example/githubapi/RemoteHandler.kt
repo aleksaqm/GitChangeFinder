@@ -1,12 +1,11 @@
-package org.example
+package org.example.org.example.githubapi
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import org.example.org.example.exceptions.GitHubApiException
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -15,7 +14,6 @@ data class ChangedFile(
     val filename: String,
 )
 
-class GitHubApiException(message: String) : Exception(message)
 
 fun getChangedFilesRemoteBranch(owner: String, repo: String, branch: String, mergeBaseCommit: String, accessToken: String): List<String> {
     val url = URL("https://api.github.com/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")

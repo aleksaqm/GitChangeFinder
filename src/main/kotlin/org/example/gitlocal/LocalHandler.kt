@@ -1,5 +1,6 @@
-package org.example
+package org.example.org.example.gitlocal
 
+import org.example.org.example.exceptions.GitCommandException
 import java.io.File
 
 fun getChangedFilesLocalBranch(mergeBaseCommit : String, branch: String, localRepoPath: String): List<String>{

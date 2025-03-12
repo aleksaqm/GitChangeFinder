@@ -1,7 +1,7 @@
-package org.example
+package org.example.org.example.gitlocal
 
+import org.example.org.example.exceptions.GitCommandException
 import java.io.File
-class GitCommandException(message: String) : Exception(message)
 
 fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String {
     val process = ProcessBuilder("git", "merge-base", "origin/$branchA", branchB)
@@ -18,4 +18,3 @@ fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String)
 
     return output
 }
-
