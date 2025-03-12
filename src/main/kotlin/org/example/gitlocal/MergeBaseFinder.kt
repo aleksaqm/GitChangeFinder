@@ -1,20 +1,16 @@
 package org.example.org.example.gitlocal
 
 import org.example.org.example.exceptions.GitCommandException
+import org.example.org.example.utils.ProcessRunner
 import java.io.File
 
-fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String {
-    val process = ProcessBuilder("git", "merge-base", "origin/$branchA", branchB)
-        .directory(File(localRepoPath))
-        .redirectErrorStream(true)
-        .start()
-
-    val output = process.inputStream.bufferedReader().use { it.readLine()?.trim() }
-    val exitCode = process.waitFor()
-
-    if (exitCode != 0 || output.isNullOrBlank()) {
-        throw GitCommandException("Failed to find merge base between '$branchA' and '$branchB'. Ensure the branches exist and are properly set up.")
+fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String, processRunner: ProcessRunner = ProcessRunner()): String {
+    return try {
+        processRunner.runCommand(
+            listOf("git", "merge-base", "origin/$branchA", branchB),
+            File(localRepoPath)
+        )
+    } catch (e: Exception) {
+        throw GitCommandException("Failed to find merge base between '$branchA' and '$branchB': ${e.message}")
     }
-
-    return output
 }
