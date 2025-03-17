@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/MergeBaseFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/MergeBaseFinderTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +131,7 @@
       <recent name="org.example.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.RemoteHandlerTest">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="GitChangeFinderTest.should return common changed files between local and remote branches" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -235,10 +237,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.RemoteHandlerTest" />
         <item itemvalue="Gradle.LocalHandlerTest" />
         <item itemvalue="Gradle.LocalHandlerTest.test findMergeBaseCommit success" />
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.GitChangeFinderTest.should return common changed files between local and remote branches" />
       </list>
     </recent_temporary>
@@ -265,7 +267,7 @@
       <workItem from="1741792991949" duration="287000" />
       <workItem from="1741793291325" duration="1465000" />
       <workItem from="1741794779988" duration="12834000" />
-      <workItem from="1742205314928" duration="2868000" />
+      <workItem from="1742205314928" duration="5960000" />
     </task>
     <servers />
   </component>

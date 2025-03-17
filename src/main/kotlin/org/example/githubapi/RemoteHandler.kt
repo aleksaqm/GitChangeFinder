@@ -22,9 +22,10 @@ class RemoteHandler(private val json: Json = Json { ignoreUnknownKeys = true }) 
         branch: String,
         mergeBaseCommit: String,
         accessToken: String,
-        baseUrl: String = "https://api.github.com"
+        baseUrl: String = "https://api.github.com",
+        urlProvider: (String) -> URL = { URL(it) }
     ): List<String> {
-        val url = URL("$baseUrl/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")
+        val url = urlProvider("$baseUrl/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")
 
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "GET"
@@ -41,11 +42,12 @@ class RemoteHandler(private val json: Json = Json { ignoreUnknownKeys = true }) 
                 throw GitHubApiException("Failed to get changes in remote branch '$branch'. Response code: ${connection.responseCode}, Error: $errorMsg")
             }
 
+            val json = Json { ignoreUnknownKeys = true }
             val response = connection.inputStream.bufferedReader().use { it.readText() }
             val jsonObject = json.parseToJsonElement(response).jsonObject
 
             val filesJsonArray = jsonObject["files"]?.jsonArray ?: return emptyList()
-            filesJsonArray.map { json.decodeFromString<ChangedFile>(it.toString()).filename }
+            filesJsonArray.map { json.decodeFromJsonElement<ChangedFile>(it).filename }
         } finally {
             connection.disconnect()
         }

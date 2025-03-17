@@ -6,7 +6,7 @@ import java.io.File
 
 class LocalHandler(private val processRunner: ProcessRunner = ProcessRunner()) {
 
-    fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String {
+    internal fun findMergeBaseCommit(branchA: String, branchB: String, localRepoPath: String): String {
         return try {
             processRunner.runCommand(
                 listOf("git", "merge-base", "origin/$branchA", branchB),
@@ -17,7 +17,7 @@ class LocalHandler(private val processRunner: ProcessRunner = ProcessRunner()) {
         }
     }
 
-    fun getChangedFilesLocalBranch(mergeBaseCommit: String, branch: String, localRepoPath: String): List<String> {
+    internal fun getChangedFilesLocalBranch(mergeBaseCommit: String, branch: String, localRepoPath: String): List<String> {
         return try {
             val result = processRunner.runCommand(
                 listOf("git", "diff", "--name-only", mergeBaseCommit, branch),

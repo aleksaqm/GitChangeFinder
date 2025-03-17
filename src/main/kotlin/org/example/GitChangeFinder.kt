@@ -18,8 +18,10 @@ class GitChangeFinder(
         branchB: String
     ): List<String> {
         val mergeBase = localHandler.findMergeBaseCommit(branchA, branchB, localRepoPath)
-        val filesListLocal = localHandler.getChangedFilesLocalBranch(mergeBase, branchA, localRepoPath)
+        val filesListLocal = localHandler.getChangedFilesLocalBranch(mergeBase, branchB, localRepoPath)
+        println("Found files: $filesListLocal")
         val filesListRemote = remoteHandler.getChangedFilesRemoteBranch(owner, repo, branchA, mergeBase, accessToken)
+        println("Found files: $filesListRemote")
 
         return getCommonItems(filesListLocal, filesListRemote)
     }

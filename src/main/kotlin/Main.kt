@@ -3,7 +3,7 @@ package org.example
 
 fun main() {
     val branchA = "develop"
-    val branchB = "main"
+    val branchB = "git-api"
     val localRepoPath = "C:/Users/Aleksa/Documents/jetbrains_tasks/teamcity_task/TeamCityTask1/"
 
     val owner = "aleksaqm"
