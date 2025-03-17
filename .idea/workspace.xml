@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +86,10 @@
     "Gradle.LocalHandlerTest.test getChangedFilesLocalBranch failure.executor": "Run",
     "Gradle.MergeBaseFinderTest.executor": "Run",
     "Gradle.MergeBaseFinderTest.should return commit hash when process executes successfully.executor": "Run",
+    "Gradle.ProcessRunnerTest.executor": "Run",
+    "Gradle.ProcessRunnerTest.runCommand should execute command successfully.executor": "Run",
+    "Gradle.ProcessRunnerTest.runCommand should throw IOException for non-existent command.executor": "Run",
+    "Gradle.ProcessRunnerTest.runCommand should throw exception for failed command.executor": "Run",
     "Gradle.RemoteHandlerTest.executor": "Run",
     "Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch success.executor": "Run",
     "Gradle.TeamCityTask1 [build].executor": "Run",
@@ -125,14 +127,14 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.utils" />
       <recent name="org.example" />
       <recent name="org.example.githubapi" />
       <recent name="org.example.gitlocal" />
-      <recent name="org.example.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration name="GitChangeFinderTest.should return common changed files between local and remote branches" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ProcessRunnerTest.runCommand should throw exception for failed command">
+    <configuration name="GitChangeFinderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -145,7 +147,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.GitChangeFinderTest.should return common changed files between local and remote branches&quot;" />
+            <option value="&quot;org.example.GitChangeFinderTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -156,7 +158,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="LocalHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProcessRunnerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +171,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.gitlocal.LocalHandlerTest&quot;" />
+            <option value="&quot;org.example.utils.ProcessRunnerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +182,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="LocalHandlerTest.test findMergeBaseCommit success" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProcessRunnerTest.runCommand should execute command successfully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +195,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.gitlocal.LocalHandlerTest.test findMergeBaseCommit success&quot;" />
+            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should execute command successfully&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,7 +206,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RemoteHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProcessRunnerTest.runCommand should throw IOException for non-existent command" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -217,7 +219,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.githubapi.RemoteHandlerTest&quot;" />
+            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should throw IOException for non-existent command&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -228,20 +230,37 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.MainKt" />
-      <module name="TeamCityTask1.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ProcessRunnerTest.runCommand should throw exception for failed command" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should throw exception for failed command&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.RemoteHandlerTest" />
-        <item itemvalue="Gradle.LocalHandlerTest" />
-        <item itemvalue="Gradle.LocalHandlerTest.test findMergeBaseCommit success" />
-        <item itemvalue="Gradle.GitChangeFinderTest.should return common changed files between local and remote branches" />
+        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw exception for failed command" />
+        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should execute command successfully" />
+        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw IOException for non-existent command" />
+        <item itemvalue="Gradle.ProcessRunnerTest" />
+        <item itemvalue="Gradle.GitChangeFinderTest" />
       </list>
     </recent_temporary>
   </component>
