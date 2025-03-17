@@ -1,13 +1,17 @@
 package org.example.githubapi
 
 import kotlinx.serialization.json.Json
+import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.example.org.example.exceptions.GitHubApiException
 import org.example.org.example.githubapi.getChangedFilesRemoteBranch
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
+import kotlinx.serialization.SerializationException
 
 class GitHubApiTest {
     private lateinit var server: MockWebServer
@@ -33,20 +37,67 @@ class GitHubApiTest {
             ]
         }
     """.trimIndent()
-
-        // Mock the server response with a 200 status
         server.enqueue(MockResponse().setBody(mockJsonResponse).setResponseCode(200))
-
-        // Now run your function
+        val mockServerUrl = server.url("/repos/test-owner/test-repo/compare/commit123...main").toString()
         val result = getChangedFilesRemoteBranch(
             "test-owner",
             "test-repo",
             "main",
             "commit123",
-            "dummy_token"  // Using dummy token for mock test
-        ).sorted()
+            "dummy_token",
+            baseUrl = mockServerUrl
+        )
+        assertEquals(listOf("src/main/kotlin/Main.kt", "README.md"), result)
+    }
 
-        // Verify that the result matches the expected file names
-        assertEquals(listOf("README.md", "src/main/kotlin/Main.kt"), result)
+    @Test
+    fun `should throw GitHubApiException for 401 Unauthorized response`() {
+        val mockJsonResponse = """
+        {
+            "message": "Bad credentials",
+            "documentation_url": "https://docs.github.com/rest"
+        }
+    """.trimIndent()
+
+        server.enqueue(MockResponse().setBody(mockJsonResponse).setResponseCode(401))
+        val mockServerUrl = server.url("/repos/test-owner/test-repo/compare/commit123...main").toString()
+
+        val exception = assertThrows<GitHubApiException> {
+            getChangedFilesRemoteBranch(
+                "test-owner",
+                "test-repo",
+                "main",
+                "commit123",
+                "dummy_token",
+                baseUrl = mockServerUrl // Pass the mock server URL here
+            )
+        }
+        val normalizedMessage = exception.message?.replace(Regex("\\s+"), " ")?.trim()
+        val expectedMessage = "Failed to get changes in remote branch 'main'. Response code: 401, Error: { \"message\": \"Bad credentials\", \"documentation_url\": \"https://docs.github.com/rest\" }"
+        assertEquals(expectedMessage, normalizedMessage)
+    }
+
+    @Test
+    fun `should throw GitHubApiException for invalid JSON response`() {
+        val invalidJsonResponse = """
+        { "files": [ "filename": "README.md" }  // Invalid JSON
+    """.trimIndent()
+
+        server.enqueue(MockResponse().setBody(invalidJsonResponse).setResponseCode(200))
+
+        val mockServerUrl = server.url("/repos/test-owner/test-repo/compare/commit123...main").toString()
+
+        val exception = assertThrows<SerializationException> {
+            getChangedFilesRemoteBranch(
+                "test-owner",
+                "test-repo",
+                "main",
+                "commit123",
+                "dummy_token",
+                baseUrl = mockServerUrl
+            )
+        }
+        assertEquals("Unexpected JSON token at offset 24: Expected end of the array or comma at path: \$\n" +
+                "JSON input: { \"files\": [ \"filename\": \"README.md\" }  // Invalid JSON", exception.message)
     }
 }

@@ -15,8 +15,8 @@ data class ChangedFile(
 )
 
 
-fun getChangedFilesRemoteBranch(owner: String, repo: String, branch: String, mergeBaseCommit: String, accessToken: String): List<String> {
-    val url = URL("https://api.github.com/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")
+fun getChangedFilesRemoteBranch(owner: String, repo: String, branch: String, mergeBaseCommit: String, accessToken: String, baseUrl: String = "https://api.github.com"): List<String> {
+    val url = URL("$baseUrl/repos/$owner/$repo/compare/$mergeBaseCommit...$branch")
 
     val connection = (url.openConnection() as HttpURLConnection).apply {
         requestMethod = "GET"
