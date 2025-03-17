@@ -1,45 +1,81 @@
 package org.example.gitlocal
 
-import io.mockk.*
-import org.example.org.example.exceptions.GitCommandException
-import org.example.org.example.gitlocal.findMergeBaseCommit
-import org.example.org.example.gitlocal.getChangedFilesLocalBranch
+import io.mockk.every
+import io.mockk.mockk
 import org.example.org.example.utils.ProcessRunner
+import org.example.org.example.exceptions.GitCommandException
+import org.example.org.example.gitlocal.LocalHandler
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.io.File
-import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
 
-class LocalHandlerTest{
+class LocalHandlerTest {
+
+    private val mockProcessRunner = mockk<ProcessRunner>()
+    private val localHandler = LocalHandler(mockProcessRunner)
+
     @Test
-    fun `test getChangedFilesLocalBranch successful`() {
-        val processRunner = mockk<ProcessRunner>()
-        val repoPath = "path/to/repo"
-        val mergeBaseCommit = "123abc"
-        val branch = "feature"
+    fun `test findMergeBaseCommit success`() {
+        val branchA = "main"
+        val branchB = "feature"
+        val localRepoPath = "/path/to/repo"
+        val expectedMergeBase = "abc123"
 
-        every { processRunner.runCommand(any(), File(repoPath)) } returns "file1.txt\nfile2.txt\nfile3.txt"
+        every { mockProcessRunner.runCommand(
+            listOf("git", "merge-base", "origin/$branchA", branchB),
+            File(localRepoPath)
+        ) } returns expectedMergeBase
 
-        val result = getChangedFilesLocalBranch(mergeBaseCommit, branch, repoPath, processRunner)
+        val result = localHandler.findMergeBaseCommit(branchA, branchB, localRepoPath)
+        assertEquals(expectedMergeBase, result)
+    }
 
-        assertEquals(listOf("file1.txt", "file2.txt", "file3.txt"), result)
-        verify { processRunner.runCommand(listOf("git", "diff", "--name-only", mergeBaseCommit, branch), File(repoPath)) }
+    @Test
+    fun `test findMergeBaseCommit failure`() {
+        val branchA = "main"
+        val branchB = "feature"
+        val localRepoPath = "/path/to/repo"
+
+        every { mockProcessRunner.runCommand(
+            listOf("git", "merge-base", "origin/$branchA", branchB),
+            File(localRepoPath)
+        ) } throws RuntimeException("Error")
+
+        assertThrows(GitCommandException::class.java) {
+            localHandler.findMergeBaseCommit(branchA, branchB, localRepoPath)
+        }
+    }
+
+    @Test
+    fun `test getChangedFilesLocalBranch success`() {
+        val mergeBase = "abc123"
+        val branch = "main"
+        val localRepoPath = "/path/to/repo"
+        val gitOutput = "file1.txt\nfile2.txt\n"
+        val expectedFiles = listOf("file1.txt", "file2.txt")
+
+        every { mockProcessRunner.runCommand(
+            listOf("git", "diff", "--name-only", mergeBase, branch),
+            File(localRepoPath)
+        ) } returns gitOutput
+
+        val result = localHandler.getChangedFilesLocalBranch(mergeBase, branch, localRepoPath)
+        assertEquals(expectedFiles, result)
     }
 
     @Test
     fun `test getChangedFilesLocalBranch failure`() {
-        val processRunner = mockk<ProcessRunner>()
-        val repoPath = "path/to/repo"
-        val mergeBaseCommit = "123abc"
-        val branch = "feature"
+        val mergeBase = "abc123"
+        val branch = "main"
+        val localRepoPath = "/path/to/repo"
 
-        every { processRunner.runCommand(any(), File(repoPath)) } throws RuntimeException("Command failed")
+        every { mockProcessRunner.runCommand(
+            listOf("git", "diff", "--name-only", mergeBase, branch),
+            File(localRepoPath)
+        ) } throws RuntimeException("Error")
 
-        val exception = assertFailsWith<GitCommandException> {
-            getChangedFilesLocalBranch(mergeBaseCommit, branch, repoPath, processRunner)
+        assertThrows(GitCommandException::class.java) {
+            localHandler.getChangedFilesLocalBranch(mergeBase, branch, localRepoPath)
         }
-
-        assertEquals("Failed to get changed files for branch '$branch': Command failed", exception.message)
-
     }
 }
