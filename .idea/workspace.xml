@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +95,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "refactor",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Aleksa/Documents/kotlin-playground/playground",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -133,31 +131,7 @@
       <recent name="org.example.gitlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ProcessRunnerTest.runCommand should throw exception for failed command">
-    <configuration name="GitChangeFinderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.GitChangeFinderTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="ProcessRunnerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -254,13 +228,20 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.MainKt" />
+      <module name="TeamCityTask1.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw exception for failed command" />
         <item itemvalue="Gradle.ProcessRunnerTest.runCommand should execute command successfully" />
         <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw IOException for non-existent command" />
         <item itemvalue="Gradle.ProcessRunnerTest" />
-        <item itemvalue="Gradle.GitChangeFinderTest" />
       </list>
     </recent_temporary>
   </component>
