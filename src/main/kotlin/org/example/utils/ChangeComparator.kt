@@ -1,4 +1,4 @@
-package org.example.org.example.utils
+package org.example.utils
 
 fun getCommonItems(localChanges: List<String>, remoteChanges: List<String>): List<String> {
     if (localChanges.isEmpty() || remoteChanges.isEmpty()) return emptyList()

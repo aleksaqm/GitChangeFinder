@@ -1,11 +1,11 @@
-package org.example.org.example.githubapi
+package org.example.githubapi
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
-import org.example.org.example.exceptions.GitHubApiException
+import org.example.exceptions.GitHubApiException
 import java.net.HttpURLConnection
 import java.net.URL
 

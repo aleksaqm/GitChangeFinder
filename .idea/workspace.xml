@@ -6,7 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ProcessRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ProcessRunner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/MergeBaseFinderTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/GitChangeFinder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/exceptions/GitCommandException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/exceptions/GitCommandException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/exceptions/GitHubApiException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/exceptions/GitHubApiException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ChangeComparator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ChangeComparator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ChangeComparatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ChangeComparatorTest.kt" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +120,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "shadow-jar",
+<<<<<<< Updated upstream
+    "git-widget-placeholder": "develop",
+=======
+    "git-widget-placeholder": "main",
+>>>>>>> Stashed changes
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Aleksa/Documents/kotlin-playground/playground",
+    "last_opened_file_path": "C:/Users/Aleksa/Documents/jetbrains_tasks/teamcity_task/TeamCityTask1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -289,6 +314,8 @@
       <workItem from="1741793291325" duration="1465000" />
       <workItem from="1741794779988" duration="12834000" />
       <workItem from="1742205314928" duration="5960000" />
+      <workItem from="1742387888253" duration="794000" />
+      <workItem from="1742388754511" duration="253000" />
     </task>
     <servers />
   </component>

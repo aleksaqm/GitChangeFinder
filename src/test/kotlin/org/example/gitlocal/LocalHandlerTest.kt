@@ -3,8 +3,8 @@ package org.example.gitlocal
 import io.mockk.every
 import io.mockk.mockk
 import org.example.utils.ProcessRunner
-import org.example.org.example.exceptions.GitCommandException
-import org.example.org.example.gitlocal.LocalHandler
+import org.example.exceptions.GitCommandException
+import org.example.gitlocal.LocalHandler
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.io.File

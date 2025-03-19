@@ -1,3 +1,3 @@
-package org.example.org.example.exceptions
+package org.example.exceptions
 
 class GitCommandException(message: String) : Exception(message)

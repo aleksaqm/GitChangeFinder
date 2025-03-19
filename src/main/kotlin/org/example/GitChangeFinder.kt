@@ -1,8 +1,8 @@
 package org.example
 
-import org.example.org.example.githubapi.RemoteHandler
-import org.example.org.example.gitlocal.LocalHandler
-import org.example.org.example.utils.getCommonItems
+import org.example.githubapi.RemoteHandler
+import org.example.gitlocal.LocalHandler
+import org.example.utils.getCommonItems
 
 class GitChangeFinder(
     private val localHandler: LocalHandler = LocalHandler(),

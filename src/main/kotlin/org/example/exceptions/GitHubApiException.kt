@@ -1,3 +1,3 @@
-package org.example.org.example.exceptions
+package org.example.exceptions
 
 class GitHubApiException(message: String) : Exception(message)
