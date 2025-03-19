@@ -1,6 +1,6 @@
 package org.example.utils
 
-import org.example.org.example.utils.getCommonItems
+import org.example.utils.getCommonItems
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*

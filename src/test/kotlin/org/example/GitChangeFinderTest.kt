@@ -3,10 +3,10 @@ package org.example
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import org.example.org.example.exceptions.GitCommandException
-import org.example.org.example.exceptions.GitHubApiException
-import org.example.org.example.githubapi.RemoteHandler
-import org.example.org.example.gitlocal.LocalHandler
+import org.example.exceptions.GitCommandException
+import org.example.exceptions.GitHubApiException
+import org.example.githubapi.RemoteHandler
+import org.example.gitlocal.LocalHandler
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

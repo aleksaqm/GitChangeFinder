@@ -1,6 +1,6 @@
-package org.example.org.example.gitlocal
+package org.example.gitlocal
 
-import org.example.org.example.exceptions.GitCommandException
+import org.example.exceptions.GitCommandException
 import org.example.utils.ProcessRunner
 import java.io.File
 

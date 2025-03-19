@@ -3,8 +3,8 @@ package org.example.githubapi
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import org.example.org.example.exceptions.GitHubApiException
-import org.example.org.example.githubapi.RemoteHandler
+import org.example.exceptions.GitHubApiException
+import org.example.githubapi.RemoteHandler
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
