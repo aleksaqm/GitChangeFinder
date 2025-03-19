@@ -62,6 +62,7 @@ Add the JAR as a dependency in your Gradle project:
 - **Option 2: Using the Fat JAR (Self-Contained, No Extra Dependencies Needed):**
   
   If using the fat JAR, simply add it:
+  
   **Gradle (Kotlin DSL):**
    ```kotlin
    dependencies {
