@@ -16,30 +16,65 @@ GitChangeFinder is a Kotlin library designed to identify files modified independ
 ### Building the JAR
 1. Clone the repository.
 2. Build the JAR using Gradle:
-   ```bash
-   ./gradlew clean build
-   ```
+   1. For JAR without dependencies:
+       ```bash
+      ./gradlew clean build
+      ```
+      - This will generate a standard JAR without bundled dependencies.
+      - You will need to manually add required dependencies in your project (**kotlix-serialization-json**)
+        
+   3. For Fat JAR with dependencies included:
+      ```bash
+      ./gradlew shadowJar
+      ```
+      - This will generate a self-contained JAR that includes all necessary dependencies.
+      - Recommended if you don’t want to manage dependencies manually.
+   
 3. The JAR file will be located in:
    ```
-   build/libs/git-change-finder-1.0.0.jar
+   build/libs/git-change-finder-1.0.0.jar         // Standard JAR
+   build/libs/git-change-finder-fat-1.0.0.jar     // Fat JAR
+   
    ```
 
 ### Adding the JAR to Your Project
+Add the JAR to your libs folder.
 Add the JAR as a dependency in your Gradle project:
 
-**Gradle (Kotlin DSL):**
-```kotlin
-dependencies {
-    implementation(files("libs/git-change-finder-1.0.0.jar"))
-}
-```
+- **Option 1: Using standard JAR, you must manually include dependencies:**
+  
+  **Gradle (Kotlin DSL):**
+   ```kotlin
+   dependencies {
+       implementation(files("libs/git-change-finder-1.0.0.jar"))
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")   //added dependency
+   }
+   ```
+   
+  **Gradle (Groovy DSL):**
+   ```groovy
+   dependencies {
+       implementation files('libs/git-change-finder-1.0.0.jar')
+       implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'   //added dependency
+   }
+   ```
 
-**Gradle (Groovy DSL):**
-```groovy
-dependencies {
-    implementation files('libs/git-change-finder-1.0.0.jar')
-}
-```
+- **Option 2: Using the Fat JAR (Self-Contained, No Extra Dependencies Needed):**
+  
+  If using the fat JAR, simply add it:
+  **Gradle (Kotlin DSL):**
+   ```kotlin
+   dependencies {
+       implementation(files("libs/git-change-finder-fat-1.0.0.jar"))
+   }
+   ```
+   
+  **Gradle (Groovy DSL):**
+   ```groovy
+   dependencies {
+       implementation files('libs/git-change-finder-fat-1.0.0.jar')
+   }
+   ```
 
 ---
 
