@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/githubapi/RemoteHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/gitlocal/LocalHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ProcessRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/example/utils/ProcessRunner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/GitChangeFinderTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/githubapi/RemoteHandlerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/LocalHandlerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/gitlocal/MergeBaseFinderTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/example/utils/ProcessRunnerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +99,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "shadow-jar",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Aleksa/Documents/kotlin-playground/playground",
     "node.js.detected.package.eslint": "true",
