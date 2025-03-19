@@ -2,7 +2,7 @@ package org.example.gitlocal
 
 import io.mockk.every
 import io.mockk.mockk
-import org.example.org.example.utils.ProcessRunner
+import org.example.utils.ProcessRunner
 import org.example.org.example.exceptions.GitCommandException
 import org.example.org.example.gitlocal.LocalHandler
 import org.junit.jupiter.api.Assertions.*
@@ -77,5 +77,21 @@ class LocalHandlerTest {
         assertThrows(GitCommandException::class.java) {
             localHandler.getChangedFilesLocalBranch(mergeBase, branch, localRepoPath)
         }
+    }
+
+    @Test
+    fun `test getChangedFilesLocalBranch empty output`() {
+        val mergeBase = "abc123"
+        val branch = "main"
+        val localRepoPath = "/path/to/repo"
+        val gitOutput = ""
+
+        every { mockProcessRunner.runCommand(
+            listOf("git", "diff", "--name-only", mergeBase, branch),
+            File(localRepoPath)
+        ) } returns gitOutput
+
+        val result = localHandler.getChangedFilesLocalBranch(mergeBase, branch, localRepoPath)
+        assertTrue(result.isEmpty())
     }
 }

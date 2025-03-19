@@ -1,4 +1,4 @@
-package org.example.org.example.utils
+package org.example.utils
 
 import java.io.File
 

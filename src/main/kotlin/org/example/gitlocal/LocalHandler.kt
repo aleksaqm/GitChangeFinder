@@ -1,7 +1,7 @@
 package org.example.org.example.gitlocal
 
 import org.example.org.example.exceptions.GitCommandException
-import org.example.org.example.utils.ProcessRunner
+import org.example.utils.ProcessRunner
 import java.io.File
 
 class LocalHandler(private val processRunner: ProcessRunner = ProcessRunner()) {

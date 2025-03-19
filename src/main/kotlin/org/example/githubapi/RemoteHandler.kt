@@ -14,7 +14,7 @@ data class ChangedFile(
     val filename: String,
 )
 
-class RemoteHandler(private val json: Json = Json { ignoreUnknownKeys = true }) {
+class RemoteHandler() {
 
     fun getChangedFilesRemoteBranch(
         owner: String,
