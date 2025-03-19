@@ -7,6 +7,7 @@ import org.example.org.example.exceptions.GitHubApiException
 import org.example.org.example.githubapi.RemoteHandler
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.io.ByteArrayInputStream
 import java.net.HttpURLConnection
 import java.net.URL
@@ -75,4 +76,58 @@ class RemoteHandlerTest {
 
         verify { mockConnection.disconnect() }
     }
+
+    @Test
+    fun `test getChangedFilesRemoteBranch with empty files array`() {
+        val owner = "owner"
+        val repo = "repo"
+        val branch = "main"
+        val mergeBase = "abc123"
+        val accessToken = "test_token"
+
+        val mockConnection = mockk<HttpURLConnection>(relaxed = true)
+        val mockUrl = mockk<URL>()
+
+        every { mockUrl.openConnection() } returns mockConnection
+        every { mockConnection.inputStream } returns ByteArrayInputStream(
+            """{"files": []}""".toByteArray()
+        )
+        every { mockConnection.responseCode } returns 200
+
+        val result = remoteHandler.getChangedFilesRemoteBranch(
+            owner, repo, branch, mergeBase, accessToken, urlProvider = { mockUrl }
+        )
+
+        assertTrue(result.isEmpty())
+        verify { mockConnection.disconnect() }
+    }
+
+    @Test
+    fun `test getChangedFilesRemoteBranch with invalid JSON`() {
+        val owner = "owner"
+        val repo = "repo"
+        val branch = "main"
+        val mergeBase = "abc123"
+        val accessToken = "test_token"
+
+        val mockConnection = mockk<HttpURLConnection>(relaxed = true)
+        val mockUrl = mockk<URL>()
+
+        every { mockUrl.openConnection() } returns mockConnection
+        every { mockConnection.inputStream } returns ByteArrayInputStream(
+            """{invalid_json}""".toByteArray()
+        )
+        every { mockConnection.responseCode } returns 200
+
+        val exception = assertThrows<Exception> {
+            remoteHandler.getChangedFilesRemoteBranch(
+                owner, repo, branch, mergeBase, accessToken, urlProvider = { mockUrl }
+            )
+        }
+
+        assertTrue(exception.message!!.contains("json"))
+        verify { mockConnection.disconnect() }
+    }
+
+
 }

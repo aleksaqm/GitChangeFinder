@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b78333b5-e30a-4c6c-918e-5099028e397b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -80,6 +81,7 @@
     "Gradle.GitLocalTest.executor": "Run",
     "Gradle.LocalHandlerTest.executor": "Run",
     "Gradle.LocalHandlerTest.test findMergeBaseCommit success.executor": "Run",
+    "Gradle.LocalHandlerTest.test getChangedFilesLocalBranch empty output.executor": "Run",
     "Gradle.LocalHandlerTest.test getChangedFilesLocalBranch failure.executor": "Run",
     "Gradle.MergeBaseFinderTest.executor": "Run",
     "Gradle.MergeBaseFinderTest.should return commit hash when process executes successfully.executor": "Run",
@@ -89,13 +91,15 @@
     "Gradle.ProcessRunnerTest.runCommand should throw exception for failed command.executor": "Run",
     "Gradle.RemoteHandlerTest.executor": "Run",
     "Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch success.executor": "Run",
+    "Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch with empty files array.executor": "Run",
+    "Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch with malformed JSON.executor": "Run",
     "Gradle.TeamCityTask1 [build].executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "shadow-jar",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Aleksa/Documents/kotlin-playground/playground",
     "node.js.detected.package.eslint": "true",
@@ -131,7 +135,55 @@
       <recent name="org.example.gitlocal" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.GitChangeFinderTest">
+    <configuration name="GitChangeFinderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.GitChangeFinderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="LocalHandlerTest.test getChangedFilesLocalBranch empty output" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.gitlocal.LocalHandlerTest.test getChangedFilesLocalBranch empty output&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="ProcessRunnerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -156,7 +208,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProcessRunnerTest.runCommand should execute command successfully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RemoteHandlerTest.test getChangedFilesRemoteBranch with empty files array" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +221,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should execute command successfully&quot;" />
+            <option value="&quot;org.example.githubapi.RemoteHandlerTest.test getChangedFilesRemoteBranch with empty files array&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +232,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProcessRunnerTest.runCommand should throw IOException for non-existent command" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RemoteHandlerTest.test getChangedFilesRemoteBranch with malformed JSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +245,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should throw IOException for non-existent command&quot;" />
+            <option value="&quot;org.example.githubapi.RemoteHandlerTest.test getChangedFilesRemoteBranch with malformed JSON&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -203,44 +255,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
       <method v="2" />
-    </configuration>
-    <configuration name="ProcessRunnerTest.runCommand should throw exception for failed command" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.utils.ProcessRunnerTest.runCommand should throw exception for failed command&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.MainKt" />
-      <module name="TeamCityTask1.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw exception for failed command" />
-        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should execute command successfully" />
-        <item itemvalue="Gradle.ProcessRunnerTest.runCommand should throw IOException for non-existent command" />
+        <item itemvalue="Gradle.GitChangeFinderTest" />
+        <item itemvalue="Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch with malformed JSON" />
+        <item itemvalue="Gradle.RemoteHandlerTest.test getChangedFilesRemoteBranch with empty files array" />
+        <item itemvalue="Gradle.LocalHandlerTest.test getChangedFilesLocalBranch empty output" />
         <item itemvalue="Gradle.ProcessRunnerTest" />
       </list>
     </recent_temporary>
